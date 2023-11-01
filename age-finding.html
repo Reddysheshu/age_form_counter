@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Age Calculator</title>
+    <style>
+         section {
+            border: 2px solid blue;
+            margin: 100px 450px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: xx-large;
+        }
+
+        #birthdate {
+            width: 70%;
+        }
+
+        button {
+            background-color: rgb(119, 119, 247);
+            color: white;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>Age Calculator</h1>
+        <h2>Enter your date of birth</h2>
+        <input type="date" name="date" id="birthdate"><br>
+        <button onclick="calculateAge()">Calculate Age</button>
+        <h2 id="result"></h2>
+    </section>
+
+    <script>
+        function calculateAge() {
+
+            var birthdate = new Date(document.getElementById("birthdate").value);
+            var currentDate = new Date();
+            var age = currentDate.getFullYear() - birthdate.getFullYear();
+            var month = currentDate.getMonth() - birthdate.getMonth();
+            if (currentDate.getMonth() < birthdate.getMonth() || (currentDate.getMonth() === birthdate.getMonth())) {
+                age--;
+            }
+            document.getElementById("result").textContent = "Your age is " + age+ " years. " + " and " + month  + " months old ";
+             if (currentDate.getMonth() < birthdate.getMonth()) {
+                month = (currentDate.getMonth() - birthdate.getMonth()) + 12;
+                document.getElementById("result").textContent = "Your age is " + age + " years. " + " and " + month + " months old ";
+            }
+            if ((currentDate.getFullYear()<=birthdate.getFullYear())&&(currentDate.getMonth()<birthdate.getMonth()) ){
+                document.getElementById("result").textContent ="Please enter correct details";
+            }
+            if (currentDate.getFullYear()<=birthdate.getFullYear()) {
+                document.getElementById("result").textContent ="Please enter correct details";
+            }
+        }
+    </script>
+</body>
+
+</html>

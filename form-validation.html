@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        h1{
+            text-align: center;
+            font-size: 50px;
+        }
+        div{
+            margin: 0 500px;
+            border-radius: 10px;
+            box-shadow: 0px 12px 8px 0px rgba(81, 83, 97, 0.785), 0 1px 20px 0 rgba(101, 97, 121, 0.445);
+        }
+        input { 
+    width: 200px;
+    height: 20px;
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    margin-left:5px ;
+    margin-bottom: 5PX;
+    width: 90%;
+}
+input{
+    outline: none;
+}
+span{
+    color: red;
+    display: none;
+}
+
+    </style>
+</head>
+<body>
+    <h1>New User Signup</h1>
+ <div>
+    <input type="text" oninput="handleInput()" id="color-changing-field" placeholder="FirstName">
+    <span id="sp1" class="sp1">name must be and contain 4-14 characters </span><br>
+
+    <input type="text" oninput="handleinput()" id="user-name" placeholder="UserName">
+    <span id="sp2">Username must be and contain 5-12 characters</span><br>
+
+    <input type="email" oninput="HandleInput()" id="em" placeholder="Email">
+    <span id="sp3">Email must be a valid address, e.g. me@mydomain.com</span><br>
+
+    <input type="password" oninput="Handleinput()" id="pwd" placeholder="Password">
+    <span id="sp4">Password must alphanumeric (@, _ and - are also allowed) and be 8 - 20characters</span><br>
+
+    <input type="text" oninput="Input()" name="mobie" id="tp" placeholder="telephone">
+    <span id="sp5" >Telephone must be a valid Indian telephone number(10 digits)</span><br>
+
+    <input type="text" oninput="put()" name="Pannum" id="pannum" placeholder="Pancard number">
+    <span id="sp6" >Enter Valid PAN</span><br>
+</div>
+</body>
+
+<script>
+    function handleInput() {
+        const fName = document.getElementById('color-changing-field');
+        const RegexInput=/^[A-Z][a-z]{4,14}$/;
+    if (RegexInput.test(fName.value)) {
+        fName.style.border="2px solid green";
+        document.getElementById('sp1').style.display="none";
+    } else {
+        fName.style.border="2px solid red";
+        document.getElementById('sp1').style.display="block";
+    }}
+//FirstName
+    function handleinput() {
+        const uName= document.getElementById('user-name');
+        const RegexUser=/^[a-zA-Z0-9]{5,12}$/;
+        if (RegexUser.test(uName.value)) {
+        uName.style.border="2px solid green";
+        document.getElementById('sp2').style.display="none";
+    } else {
+        uName.style.border="2px solid red";
+        document.getElementById('sp2').style.display="block";
+    }}
+//Email
+    function HandleInput() {
+        const eMail=document.getElementById('em');
+        const Regexemail=/^.+@[^@]+\.[a-z]+$/;
+        if (Regexemail.test(em.value)) {
+        em.style.border="2px solid green";
+        document.getElementById('sp3').style.display="none";
+    } else {
+        em.style.border="2px solid red";
+        document.getElementById('sp3').style.display="block";
+    }}
+//Password
+    function Handleinput() {
+        const userpassword=document.getElementById('pwd');
+        const Regexpassword=/^(?=.*[a-zA-Z0-9@_\-]).{8,20}$/;
+        if (Regexpassword.test(userpassword.value)) {
+        pwd.style.border="2px solid green";
+        document.getElementById('sp4').style.display="none";
+    } else {
+        pwd.style.border="2px solid red";
+        document.getElementById('sp4').style.display="block";
+    } }
+//phone number
+function Input() {
+    const userphone=document.getElementById('tp');
+    const Regexphone=/^[6-9]\d{9}/;
+    if (Regexphone.test(userphone.value)) {
+        tp.style.border="2px solid green";
+        document.getElementById('sp5').style.display="none";
+    } else {
+        tp.style.border="2px solid red";
+        document.getElementById('sp5').style.display="block";
+    }}
+//PAN card number
+function put() {
+    const panInput=document.getElementById("pannum");
+    const panRegex=/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+    if (panRegex.test(panInput.value)) {
+       pannum.style.border="2px solid green";
+       document.getElementById('sp6').style.display="none";
+   } else {
+       pannum.style.border ="2px solid red";
+       document.getElementById('sp6').style.display="block";
+   }}
+    </script>
+</html>

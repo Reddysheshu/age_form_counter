@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section 
+    style=" box-sizing: border-box; width: 25%;border: 2px solid rgb(47, 47, 60);text-align: center;margin: 50px 525px;
+    border-radius: 20px;box-shadow: 0px 12px 8px 0px rgba(39, 40, 48, 0.785), 0 1px 20px 0 rgba(46, 44, 56, 0.445);
+        ">
+        <!--  -->
+        <h1 style="font-size: 40px;">Counter</h1>
+        <p id="num" style="font-size: 50px;font-weight: bolder;">0</p>
+        <div style="margin-bottom: 10px;">
+            <input type="button" id="minus" value="-" onclick="minus()" 
+            style="width:10%;background-color: red;color: white;">
+            <!--  -->
+            <input type="button" id="reset" value="Reset" onclick="reset()" 
+            style="background-color: rgb(40, 7, 7);color: white;width: 30%;">
+            <!--  -->
+            <input type="button" id="plus" value="+" onclick="plus()" 
+            style="width:10%;background-color: green;color: white;">
+        </div>
+    </section>
+<!-- java script -->
+<script>
+    let number=document.getElementById('num');
+    let value=number.innerHTML;
+function minus(){
+    value--;
+    document.getElementById('num').innerHTML=value;
+    if (value<0) {
+        document.getElementById('num').style.color="red";
+    }
+    if (value==0) {
+        document.getElementById('num').style.color="black";
+    }
+}
+
+function reset() {
+    value=0;
+    document.getElementById('num').innerHTML=value;
+    if (value==0) {
+        document.getElementById('num').style.color="black";
+    }
+}
+
+function plus() {
+    value++;
+    document.getElementById('num').innerHTML=value;
+    if (value>0) {
+        document.getElementById('num').style.color="green";
+    }
+    if (value==0) {
+        document.getElementById('num').style.color="black";
+    }
+}
+
+
+</script>
+
+</body>
+</html>
